@@ -3,10 +3,11 @@ class PostsController < ApplicationController
 
   def index
     @posts = Post.all.order(created_at: :desc)
+    @post = Post.new
   end
 
   def create
-    Post.new(post_params)
+    Post.create(post_params)
     redirect_to posts_path
   end
 
